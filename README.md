@@ -4,14 +4,20 @@ This is my version of a readout board for the Belgian smart energy meter deploye
 
 ## Links
 
-Below is a collection of references with the original material upon which I based this project : 
+Below is a collection of references with the original material upon which I based this **original project** : 
+* https://willem.aandewiel.nl/index.php/2018/08/28/slimme-meter-uitlezer/
+* https://opencircuit.nl/blog/Slimme-meter-uitlezer 
+
+And a few links on **github** : 
 
 * Decoder : https://github.com/matthijskooijman/arduino-dsmr
 * Logger : https://github.com/mrWheel/DSMRlogger2HTTP
 * https://mrwheel.github.io/DSMRloggerWS/
-* Schematic : https://opencircuit.nl/blog/Slimme-meter-uitlezer
 
-The specs for the smart meter can be found here : 
+You can find a **python decoder** for the serial messages here : 
+* https://github.com/jvhaarst/DSMR-P1-telegram-reader
+
+The **specs** for the smart meter can be found here : 
 * https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf
 * https://www.fluvius.be/sites/fluvius/files/2019-07/1901-fluvius-technical-specification-user-ports-digital-meter.pdf
 * https://www.fluvius.be/sites/fluvius/files/2019-12/e-mucs_h_ed_1_3.pdf
@@ -21,16 +27,16 @@ The specs for the smart meter can be found here :
 
 ### P1 port pinout
 
-The Fluvius meter P1 port uses an RJ12 connector with the following pinout : 
+The Fluvius meter P1 port uses an RJ12 connector with the following pinout.
 
-| pin | kleur  | functie      |
-|-----|------- |--------------|
-| 1   | wit    | Power +5 V   |
-| 2   | zwart  | Data Request |
-| 3   | rood   | Data GND     |
-| 4   | groen  | n.c.         |
-| 5   | geel   | Data line    |
-| 6   | blauw  | Power GND    |
+| pin | function     |
+|-----|--------------|
+| 1   | Power +5 V   |
+| 2   | Data Request |
+| 3   | Data GND     |
+| 4   | n.c.         |
+| 5   | Data line    |
+| 6   | Power GND    |
 
 
 ### Circuit board
@@ -39,8 +45,6 @@ The circuit in the `kicad/` subfolder is essentially based on the work of Willem
 
 I'm using a Lolin D32 ESP board (https://www.wemos.cc/en/latest/d32/index.html) to readout & process the telegrams. For the footprint i installed the following library in KiCad : 
 
-```
-https://github.com/pauls-3d-things/kicad-library
-```
+* https://github.com/pauls-3d-things/kicad-library
 
 This contains both the schematic as well as the footprint for the Lolin D32 board. 
