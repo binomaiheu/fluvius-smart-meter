@@ -1,17 +1,9 @@
 #include <Arduino.h>
 #include "dsmr.h"
 
-// UART 2 is on 
-//  pin 16 : RX
-//  pin 17 : TX
-
-// UART 1 is on 
-//  pin   9 : RX
-//  pint 10 : TX
 HardwareSerial SerialHW(2);
 P1Reader reader(&SerialHW, 0);
 
-unsigned long last;
 
 /**
  * Define the data we're interested in, as well as the datastructure to
