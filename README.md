@@ -38,6 +38,7 @@ The Fluvius meter P1 port uses an RJ12 connector with the following pinout.
 | 5   | Data line    |
 | 6   | Power GND    |
 
+The protocol is `serial TTL` between 0 and 5 V, but with *polarity reversed*, meaning that 5V indicates a `0` and 0V indicates a `1`.
 
 ### Circuit board
 
@@ -48,3 +49,19 @@ I'm using a Lolin D32 ESP board (https://www.wemos.cc/en/latest/d32/index.html) 
 * https://github.com/pauls-3d-things/kicad-library
 
 This contains both the schematic as well as the footprint for the Lolin D32 board. 
+
+
+### Manufacturing
+
+See :
+* https://aisler.net  for in the EU manufacturing at reasonable price
+
+
+
+### Power
+
+For powering the esp32 I found this post on reddit : https://www.reddit.com/r/esp32/comments/bwgn1q/how_to_power_a_lolin_d32_externally_from_a_dc/, it presents 3 options (copy pasted): 
+
+* *I figured it out with the help of [Dave Bird's Tech Note 097](https://www.youtube.com/watch?v=yZjpYmWVLh8) which explained how the on-board regulator can be disabled (open-circuit) by tying the EN pin to ground. This allows direct application of 3.3V onto the 3V pin, powering the board directly. Additionally, if EN is held low, a USB cable can be connected and serial comms continues to operate, because the CH340C has 3.3V supply. Power from the USB is shorted to ground via 100kohm resistor, which is no big deal.*
+* *An alternative is to power at 4.2V via the battery connector. The TP4054 can take up to 7V on its BAT pin, and the charger won't enable unless the voltage drops below 4.2V, so one could also supply, say, 5V via this connector. The D2 diode will protect USB.*
+* *One third option is to supply 5V via VBUS pin, ensuring it is as close as possible to the USB voltage (a difference of a few tenths of a volt may not cause any problems). If paranoid, a diode can be used to protect the USB supply.*
