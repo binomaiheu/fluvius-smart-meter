@@ -173,8 +173,6 @@ Wire Wire Line
 	5200 1000 5700 1000
 Wire Wire Line
 	5700 1400 5700 1000
-Wire Wire Line
-	5700 1700 5700 1900
 $Comp
 L power:GND #PWR02
 U 1 1 616FB0CB
@@ -191,13 +189,8 @@ Wire Wire Line
 Wire Wire Line
 	2850 1450 2850 1650
 Wire Wire Line
-	5700 1900 6250 1900
-Connection ~ 5700 1900
-Wire Wire Line
-	5700 1900 5700 2050
-Wire Wire Line
 	2450 2250 3800 2250
-Text GLabel 6250 1900 2    50   Input ~ 0
+Text GLabel 5950 1900 2    50   Input ~ 0
 RX
 Text GLabel 2450 1000 0    50   Input ~ 0
 5V
@@ -207,107 +200,103 @@ Text GLabel 2450 1450 0    50   Input ~ 0
 GND
 Wire Wire Line
 	2450 1000 2850 1000
-Text GLabel 3700 4950 2    50   Input ~ 0
+Text GLabel 7500 3350 2    50   Input ~ 0
 5V
-Text GLabel 3700 5050 2    50   Input ~ 0
+Text GLabel 7500 3450 2    50   Input ~ 0
 DRQ
-Text GLabel 3700 5150 2    50   Input ~ 0
+Text GLabel 7500 3550 2    50   Input ~ 0
 GND
-Text GLabel 3700 5350 2    50   Input ~ 0
+Text GLabel 7500 3750 2    50   Input ~ 0
 TX
-Text GLabel 3700 5450 2    50   Input ~ 0
+Text GLabel 7500 3850 2    50   Input ~ 0
 GND
 $Comp
 L Pauls_3D_Library:LolinD32 M1
 U 1 1 6170DAFF
-P 8050 1750
-F 0 "M1" V 9015 1750 50  0000 C CNN
-F 1 "LolinD32" V 8924 1750 50  0000 C CNN
-F 2 "Paul's 3D Things:LolinD32" H 7900 1500 50  0001 C CNN
-F 3 "" H 7900 1500 50  0001 C CNN
-	1    8050 1750
+P 7350 1950
+F 0 "M1" V 8315 1950 50  0000 C CNN
+F 1 "LolinD32" V 8224 1950 50  0000 C CNN
+F 2 "Paul's 3D Things:LolinD32" H 7200 1700 50  0001 C CNN
+F 3 "" H 7200 1700 50  0001 C CNN
+	1    7350 1950
 	0    -1   -1   0   
 $EndComp
-Text GLabel 8650 2500 2    50   Input ~ 0
+Text GLabel 7950 2700 2    50   Input ~ 0
 GND
 Wire Wire Line
-	8400 2500 8650 2500
-Text GLabel 8650 2000 2    50   Input ~ 0
+	7700 2700 7950 2700
+Text GLabel 7950 2200 2    50   Input ~ 0
 RX
 Wire Wire Line
-	8400 2000 8650 2000
-NoConn ~ 8400 1000
-NoConn ~ 8400 1100
-NoConn ~ 8400 1200
-NoConn ~ 8400 1300
-NoConn ~ 8400 1400
-NoConn ~ 7700 1000
-NoConn ~ 7700 1100
+	7700 2200 7950 2200
 NoConn ~ 7700 1200
 NoConn ~ 7700 1300
-NoConn ~ 7700 1400
 NoConn ~ 7700 1500
 NoConn ~ 7700 1600
-NoConn ~ 7700 1700
+NoConn ~ 7000 1300
+NoConn ~ 7000 1400
+NoConn ~ 7000 1500
+NoConn ~ 7000 1600
+NoConn ~ 7000 1700
+NoConn ~ 7000 1800
+NoConn ~ 7000 1900
+NoConn ~ 7000 2000
+NoConn ~ 7000 2100
 NoConn ~ 7700 1800
 NoConn ~ 7700 1900
-NoConn ~ 8400 1500
-NoConn ~ 8400 1600
-NoConn ~ 8400 1700
-NoConn ~ 8400 1800
-NoConn ~ 8400 1900
-NoConn ~ 8400 2100
-NoConn ~ 8400 2200
-NoConn ~ 8400 2300
-NoConn ~ 8400 2400
-NoConn ~ 7700 2500
-NoConn ~ 7700 2400
-NoConn ~ 7700 2300
-NoConn ~ 7700 2200
 NoConn ~ 7700 2000
-NoConn ~ 3100 5250
+NoConn ~ 7700 2100
+NoConn ~ 7700 2300
+NoConn ~ 7700 2400
+NoConn ~ 7700 2500
+NoConn ~ 7700 2600
+NoConn ~ 7000 2700
+NoConn ~ 7000 2600
+NoConn ~ 7000 2400
+NoConn ~ 7000 2200
+NoConn ~ 6900 3650
 Wire Wire Line
-	3100 5050 3700 5050
+	6900 3450 7500 3450
 Wire Wire Line
-	3100 5150 3700 5150
+	6900 3550 7500 3550
 Wire Wire Line
-	3100 5350 3700 5350
+	6900 3750 7500 3750
 Wire Wire Line
-	3100 5450 3550 5450
+	6900 3850 7350 3850
 Wire Wire Line
-	3100 4950 3550 4950
+	6900 3350 7350 3350
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 61732E56
-P 3550 4800
-F 0 "#FLG0101" H 3550 4875 50  0001 C CNN
-F 1 "PWR_FLAG" H 3550 4973 50  0000 C CNN
-F 2 "" H 3550 4800 50  0001 C CNN
-F 3 "~" H 3550 4800 50  0001 C CNN
-	1    3550 4800
+P 7350 3200
+F 0 "#FLG0101" H 7350 3275 50  0001 C CNN
+F 1 "PWR_FLAG" H 7350 3373 50  0000 C CNN
+F 2 "" H 7350 3200 50  0001 C CNN
+F 3 "~" H 7350 3200 50  0001 C CNN
+	1    7350 3200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3550 4800 3550 4950
-Connection ~ 3550 4950
+	7350 3200 7350 3350
+Connection ~ 7350 3350
 Wire Wire Line
-	3550 4950 3700 4950
+	7350 3350 7500 3350
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 61733DDB
-P 3550 5650
-F 0 "#FLG0102" H 3550 5725 50  0001 C CNN
-F 1 "PWR_FLAG" H 3550 5823 50  0000 C CNN
-F 2 "" H 3550 5650 50  0001 C CNN
-F 3 "~" H 3550 5650 50  0001 C CNN
-	1    3550 5650
+P 7350 4050
+F 0 "#FLG0102" H 7350 4125 50  0001 C CNN
+F 1 "PWR_FLAG" H 7350 4223 50  0000 C CNN
+F 2 "" H 7350 4050 50  0001 C CNN
+F 3 "~" H 7350 4050 50  0001 C CNN
+	1    7350 4050
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	3550 5650 3550 5450
-Connection ~ 3550 5450
+	7350 4050 7350 3850
+Connection ~ 7350 3850
 Wire Wire Line
-	3550 5450 3700 5450
+	7350 3850 7500 3850
 Text Notes 7450 7500 0    50   ~ 0
 P1 Digital Electricity Meter readout board
 Text Notes 10550 7650 0    50   ~ 0
@@ -370,22 +359,141 @@ Wire Wire Line
 	2900 3350 3000 3350
 Wire Wire Line
 	2450 3350 2600 3350
-Text GLabel 7450 2100 0    50   Input ~ 0
+Text GLabel 6750 2300 0    50   Input ~ 0
 GPIO12
 Wire Wire Line
-	7450 2100 7700 2100
+	6750 2300 7000 2300
 Wire Wire Line
 	3400 1000 3800 1000
 $Comp
 L Connector:RJ12 J2
 U 1 1 61734E38
-P 2700 5150
-F 0 "J2" H 2371 5154 50  0000 R CNN
-F 1 "RJ12" H 2371 5245 50  0000 R CNN
-F 2 "Connector_RJ:RJ12_Amphenol_54601" V 2700 5175 50  0001 C CNN
-F 3 "~" V 2700 5175 50  0001 C CNN
-F 4 "https://www.gotron.be/rj-vrouwelijk-printdeel-6-6-rj12.html" H 2700 5150 50  0001 C CNN "Gotron"
-	1    2700 5150
+P 6500 3550
+F 0 "J2" H 6171 3554 50  0000 R CNN
+F 1 "RJ12" H 6171 3645 50  0000 R CNN
+F 2 "Connector_RJ:RJ12_Amphenol_54601" V 6500 3575 50  0001 C CNN
+F 3 "~" V 6500 3575 50  0001 C CNN
+F 4 "https://www.gotron.be/rj-vrouwelijk-printdeel-6-6-rj12.html" H 6500 3550 50  0001 C CNN "Gotron"
+	1    6500 3550
 	1    0    0    1   
 $EndComp
+Text GLabel 7950 1400 2    50   Input ~ 0
+LCD_SCL
+Text GLabel 7950 1700 2    50   Input ~ 0
+LCD_SDA
+Wire Wire Line
+	7700 1400 7950 1400
+Wire Wire Line
+	7700 1700 7950 1700
+$Comp
+L Connector:Conn_01x04_Male J1
+U 1 1 6181D765
+P 4700 3500
+F 0 "J1" H 4808 3781 50  0000 C CNN
+F 1 "LCD pin header" H 4808 3690 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 4700 3500 50  0001 C CNN
+F 3 "~" H 4700 3500 50  0001 C CNN
+	1    4700 3500
+	1    0    0    -1  
+$EndComp
+Text GLabel 5200 3500 2    50   Input ~ 0
+LCD_SDA
+Text GLabel 5200 3400 2    50   Input ~ 0
+LCD_SCL
+Text GLabel 5200 3700 2    50   Input ~ 0
+GND
+Text GLabel 5200 3600 2    50   Input ~ 0
+5V
+Wire Wire Line
+	4900 3400 5200 3400
+Wire Wire Line
+	4900 3500 5200 3500
+Wire Wire Line
+	4900 3600 5200 3600
+Wire Wire Line
+	4900 3700 5200 3700
+Wire Wire Line
+	7000 2500 6150 2500
+Wire Wire Line
+	6150 2500 6150 2900
+Text GLabel 5250 2700 2    50   Input ~ 0
+GND
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 618A0013
+P 4700 2800
+F 0 "J3" H 4808 3081 50  0000 C CNN
+F 1 "ESP32 Power" H 4808 2990 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" H 4700 2800 50  0001 C CNN
+F 3 "~" H 4700 2800 50  0001 C CNN
+	1    4700 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 2700 5250 2700
+Wire Wire Line
+	6150 2900 5250 2900
+Wire Wire Line
+	5250 2900 5250 2800
+Wire Wire Line
+	5250 2800 4900 2800
+Wire Wire Line
+	7000 1200 6850 1200
+Wire Wire Line
+	6850 1200 6850 3000
+Wire Wire Line
+	5700 1000 6300 1000
+Wire Wire Line
+	6800 1000 6800 2950
+Connection ~ 5700 1000
+Wire Wire Line
+	6800 2950 4900 2950
+Wire Wire Line
+	4900 2950 4900 3000
+Wire Wire Line
+	6850 3000 5150 3000
+Wire Wire Line
+	5150 3000 5150 2900
+Wire Wire Line
+	5150 2900 4900 2900
+$Comp
+L Device:LED D1
+U 1 1 618C732B
+P 6300 1700
+F 0 "D1" V 6339 1582 50  0000 R CNN
+F 1 "LED" V 6248 1582 50  0000 R CNN
+F 2 "LED_THT:LED_D5.0mm" H 6300 1700 50  0001 C CNN
+F 3 "~" H 6300 1700 50  0001 C CNN
+	1    6300 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 618C8B3A
+P 6300 1300
+F 0 "R6" H 6370 1346 50  0000 L CNN
+F 1 "220 Ohm" H 6370 1255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6230 1300 50  0001 C CNN
+F 3 "~" H 6300 1300 50  0001 C CNN
+	1    6300 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 1700 5700 1900
+Wire Wire Line
+	5950 1900 5700 1900
+Connection ~ 5700 1900
+Wire Wire Line
+	5700 1900 5700 2050
+Text GLabel 6300 2000 3    50   Input ~ 0
+GND
+Wire Wire Line
+	6300 1450 6300 1550
+Wire Wire Line
+	6300 1850 6300 2000
+Wire Wire Line
+	6300 1150 6300 1000
+Connection ~ 6300 1000
+Wire Wire Line
+	6300 1000 6800 1000
 $EndSCHEMATC
