@@ -1,17 +1,23 @@
 #include <Arduino.h>
-#include "dsmr.h"
+#include <dsmr.h>
 
-HardwareSerial SerialHW(2);
-P1Reader reader(&SerialHW, 0);
+#include <LiquidCrystal_I2C.h>
 
 
-/**
- * Define the data we're interested in, as well as the datastructure to
- * hold the parsed data. This list shows all supported fields, remove
- * any fields you are not using from the below list to make the parsing
- * and printing code smaller.
- * Each template argument below results in a field of the same name.
- */
+// Firmware configuration
+#define ESP32_UART_PORT 2   // Using UART2 on the Lolin D32
+#define DATA_ENABLE   12  // GPIO12 is connected to data enable
+
+
+// Define the Hardware serial port to recieve the telegrams UART for which we use the RX pin
+// On the Lolin D32 UART2 uses pins 
+HardwareSerial SerialHW(ESP32_UART_PORT);
+P1Reader reader(&SerialHW, DATA_ENABLE);
+
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);   
+
+
 using MyData = ParsedData<
     /* String */ identification,
     /* String */ p1_version,
@@ -52,19 +58,7 @@ using MyData = ParsedData<
     /* uint16_t */ gas_device_type,
     /* String */ gas_equipment_id,
     /* uint8_t */ gas_valve_position,
-    /* TimestampedFixedValue */ gas_delivered,
-    /* uint16_t */ thermal_device_type,
-    /* String */ thermal_equipment_id,
-    /* uint8_t */ thermal_valve_position,
-    /* TimestampedFixedValue */ thermal_delivered,
-    /* uint16_t */ water_device_type,
-    /* String */ water_equipment_id,
-    /* uint8_t */ water_valve_position,
-    /* TimestampedFixedValue */ water_delivered,
-    /* uint16_t */ sub_device_type,
-    /* String */ sub_equipment_id,
-    /* uint8_t */ sub_valve_position,
-    /* TimestampedFixedValue */ sub_delivered>;
+    /* TimestampedFixedValue */ gas_delivered_be>; // need the belgian variety..
 
 
 /**
@@ -102,39 +96,79 @@ struct Printer
   }
 };
 
-#define ENABLE        12  // GPIO12 is connected to data enable
-#define SWITCHTIME 10000  // switch on/off every 10 secs
-
-unsigned long prev_time;
-uint8_t status = 0;
 
 void setup()
 {
   Serial.begin(115200);
   SerialHW.begin(115200);
 
-  // configure GPIO12
-  pinMode(ENABLE, OUTPUT);
-  digitalWrite(ENABLE, 0);
+  // configure GPIO12 --> enable the datafeed
+  pinMode(DATA_ENABLE, OUTPUT);
+  digitalWrite(DATA_ENABLE, 0);
 
-  prev_time = millis();
+  lcd.init();               // initialize the lcd 16 cols, 2 rows
+  lcd.clear();
+  lcd.backlight();
+  
+
+  // start a read right away
+  reader.enable(false); // enable permenantly, not once !
+
+  // Print a message on both lines of the LCD.
+  /*
+  lcd.setCursor(2,0);   //Set cursor to character 2 on line 0
+  lcd.print("Hello world!");
+  
+  lcd.setCursor(2,1);   //Move cursor to character 2 on line 1
+  lcd.print("LCD Tutorial");
+  */
 }
 
 
 void loop()
 {
+/*
   while(SerialHW.available()) {
     Serial.print(char(SerialHW.read()));
   }
-
-  if ( ( ( millis() - prev_time ) > SWITCHTIME ) && ( ! SerialHW.available() ) )
+*/
+  if (reader.loop())
   {
-    Serial.println("SWITCHING THE DATAFEED...");
-    status = (status + 1) % 2;
-    digitalWrite(ENABLE, status);
+    MyData data;
+    String err;
+    if (reader.parse(&data, &err))
+    {
+      // Parse succesful, print result
+      data.applyEach(Printer());
+   
+      lcd.clear();
+      lcd.setCursor(0,0);
+      //lcd.printf("V:%.2f, A:%.2f", data.voltage_l1.val(), data.current_l1.val() );
+      lcd.printf("Power: %6.3f %s", data.power_delivered.val(), data.power_delivered::unit() );
 
-    prev_time = millis();
+      lcd.setCursor(0,1);
+      lcd.printf("Gas  : %6.3f %s", data.gas_delivered_be.val(), data.gas_delivered_be::unit() );
+    }
+    else
+    {
+      // Parser error, print error
+      Serial.println(err);
+    }
+
   }
-  
+/*
+  // clear the screen
+  lcd.clear();
+  delay(500);
+  // read all the available characters
+  //while (Serial.available() > 0) {
+    // display each character to the LCD
+  //  lcd.write(Serial.read());
+  //}
+  lcd.home();
+  lcd.print("Booting...");
+  delay(500);
+*/
+
 
 }
